@@ -1,60 +1,68 @@
-// Structs
+// Interfaces
 
-// Los ejercicios:
-// Declarar un struct para mantener info. de un usuario (nombre, dirección, edad)
+// Declarar una interface llamada speaker con un método llamado speak.
+// Declarar un struct llamado ingles que represente a una persona que hable Inglés.
+// Declarar un struct llamado chino que represente a una persona que hable chino.
+// Implementar la interface speaker para cada struct usando un valor y strings: "Hello World" y "你好世界"
+// Declarar una variable del tipo speaker y asignarle una dirección de tipo Inglés y llamar el método.
+// Hay que hacerlo para chino.
 
-// Crear un valor y lo vamos a inicializar con valores
-// Mostrar cada campo
-// Declarar e inicializar un struct anónimo con los mismos 3 campos
-// Mostrar el valor.
 
 package main
 
 import "fmt"
 
-// usuario representa un usuario en el sistema
-
-type usuario struct {
-	nombre string
-	direccion string
-	edad int
+// speaker implementa lo que dice una persona
+type speaker interface {
+	speak()
 }
 
-// main es el punto de entrada de nuestras aplicaciones/ sistemas
+// inglés representa a una persona que habla inglés
+
+type ingles struct{}
+
+// speak implementa la interface speaker
+func (ingles) speak() {
+	fmt.Println("Hello World")
+}
+
+// chino representa a una persona que habla chino
+
+type chino struct{}
+
+// speak implementa la interface speaker
+func(chino) speak() {
+	fmt.Println("你好世界")
+}
 
 func main() {
-	// Declarar la variable usuario y la iniciamos usando un struct
+	//Declarar una variable para interface
+	var sp speaker
 
-	vero := usuario{
-		nombre : "Verónica",
-		direccion : "Calle 12",
-		edad : 38,
-	}
+	// Asignarle un valor a la interface y vamos a llamar al método (de la interface)
+	var i ingles
+	sp = i
+	sp.speak()
 
-	//Mostrar los valores de cada campo
+	// Chino
+	var c chino
+	sp = c
+	sp.speak()
 
-	fmt.Println("Nombre", vero.nombre)
-	fmt.Println("Dirección", vero.direccion)
-	fmt.Println("Age", vero.edad)
-
-	// Declarar otro struct anon con los mismos 3 campos
-	nicole := struct {
-		nombre string
-		direccion string
-		edad int
-	} {
-
-		nombre: "Nicole",
-		direccion : "Calle 13",
-		edad: 22,
-	}
-
-	// Imprimir datos de Nicole
-
-	fmt.Println("Nombre", nicole.nombre)
-	fmt.Println("Dirección", nicole.direccion)
-	fmt.Println("Edad", nicole.edad)
+	// Crear nuevos valores y llamar la función
+	decirHola(new(ingles))
+	decirHola(&chino{})
 }
+
+// decirHola abstrae la función de hablar
+
+func decirHola(sp speaker) {
+	sp.speak()
+}
+
+
+
+
 
 
 
