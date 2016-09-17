@@ -10,10 +10,12 @@ import (
 func main() {
 
 	http.HandleFunc("/",handler)
-	log.Fatal(http.ListenAndServe("localhost:8080",nil))
+	log.Fatal(http.ListenAndServe("localhost:8000",nil))
 
 }
 
 func handler(w http.ResponseWriter,r *http.Request){
-	fmt.Fprint(w,"URL.path = %q/n",r.URL.Path)
+	fmt.Fprintf(w,"URL.Path = %q\n",r.URL.Path)
 }
+
+
