@@ -4,37 +4,19 @@ import "fmt"
 
 func main(){
 
-	var nombres[5] string
+	departamentos:= make(map[string]int)
 
-	amigos := [5]string{"alejo","cris","juan","pipe","pedro"}
+	departamentos["Devs"] = 25
+	departamentos["QA"] = 10
+	departamentos["Ops"] = 10
 
-	nombres = amigos
+	fmt.Println(departamentos["Devs"])
+	fmt.Println(departamentos["QA"])
+	fmt.Println(departamentos["Ops"])
 
-	fmt.Println(nombres)
-
-	var numeros []int
-
-	for i:=0; i< 10 ;i++ {
-		numeros = append(numeros,i*10)
+	for key, value := range departamentos{
+		fmt.Printf("Dept: %s Personas: %d\n",key,value)
 	}
 
-	fmt.Println(numeros)
-
-	for _, numero:= range numeros{
-
-		fmt.Println(numero)
-	}
-
-	frutas := []string{"manzana","naranja","pera","sandía","aguacate"}
-
-	for i, fruta:= range frutas {
-		fmt.Printf("Index: %d Fruta: %s\n",i,fruta)
-	}
-
-	slice := frutas [0:1]
-
-	for i, fruta:=range slice {
-		fmt.Printf("Index: %d Fruta: %s\n",i,fruta)
-	}
 
 }
