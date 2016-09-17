@@ -4,19 +4,25 @@ import "fmt"
 
 func main(){
 
-	departamentos:= make(map[string]int)
+	numeros := []int{2,4,6}
+	suma := 0
+	for _, num:= range numeros {
+		suma += num
+	}
 
-	departamentos["Devs"] = 25
-	departamentos["QA"] = 10
-	departamentos["Ops"] = 10
+	fmt.Println("suma:", suma)
 
-	fmt.Println(departamentos["Devs"])
-	fmt.Println(departamentos["QA"])
-	fmt.Println(departamentos["Ops"])
-
-	for key, value := range departamentos{
-		fmt.Printf("Dept: %s Personas: %d\n",key,value)
+	for i, numero :=range numeros{
+		if numero == 3 {
+			fmt.Println("index:", i)
+		}
 	}
 
 
+	mapa := map[string]string{"a":"auto","b":"bebe"}
+	for key, value:=range mapa{
+		fmt.Println(key,value)
+	}
 }
+
+
