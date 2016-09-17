@@ -4,6 +4,8 @@ import "fmt"
 
 func main() {
 
-	fmt.Println("Web Server")
-
+	persons := 1
+	for persons <= 3 {
+		fmt.Println( persons)
+	}
 }
